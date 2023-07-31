@@ -1,5 +1,13 @@
 .modal{
   background-color: rgba(0,0,0,0.75);
+  position: relative;
+  top : 0 ;
+  left : 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .modal .container{
   background-color: #f7f8f9;
@@ -7,4 +15,3 @@
   width: 500px;
 
 }
-`
