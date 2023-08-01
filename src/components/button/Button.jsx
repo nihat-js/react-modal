@@ -1,19 +1,10 @@
 import React from 'react'
-import styled from "styled-components";
+import StyledButton from './StyledButton'
 
-export default function Button({backgroundColor ,  text , handleClick}) {
+export default function Button({bgcolor ,  text , onClick}) {
 
-  const StyledButton = styled.button`
-  background-color: ${backgroundColor};
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius:6px
-  `
-
-
-
-  return (
-    <StyledButton  onClick={handleClick} >  { text} </StyledButton>
-  )
+  return  <StyledButton bgcolor={bgcolor}  onClick={onClick}  >  { text} </StyledButton>
+  
 }
+
+

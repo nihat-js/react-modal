@@ -1,35 +1,30 @@
 import React from 'react'
-import style from "./Modal.css"
-import styled from 'styled-components'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect,useState } from 'react'
+import StyledModal from './Modal.styled' 
 
-export default function Modal({ header, show, setShow }) {
-
-  const CloseButton = styled.button`
-    position: absolute;
-    top : 0;
-    right : 0;
-    background-color : #e81123;
-    padding : 10px;
-  `
+export default function Modal({ header, show, setShow, showCloseButton = true }) {
 
 
   useEffect(() => {
-    let listener = window.addEventListener('body', (e) => {
+    let listener = window.addEventListener('click', (e) => {
       if (e.target.classList.contains('modal')) {
         setShow(false)
       }
     })
+    return window.removeEventListener('click',listener)
   }, [])
 
 
   return (
-    <div className="modal  ${style['modal']}  " style={{ display: show ? "flex" : "none" }}>
+    <StyledModal className='modal' show={show.toString()} >
       <div className="container">
-        I am modal
-        <CloseButton onClick={() => setShow(false)}> &times; gds </CloseButton>
+        <h3 className='title'> {header}   </h3>
+        {showCloseButton && <button className='btn-close' onClick={() => { setShow(false)  }}> &times; </button>}
+
       </div>
-    </div>
+    </StyledModal>
   )
 }
+
+
+
