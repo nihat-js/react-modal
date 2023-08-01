@@ -37,5 +37,10 @@ const StyledModal = styled.div`
       font-weight : bold;
       cursor : pointer;
     }
+    .actions {
+      margin : 20px 0 ;
+      display : flex;
+      gap : 10px
+    }
     `
  export default StyledModal   
